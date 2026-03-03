@@ -9,7 +9,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
 
-from Evaluation.EvaluationHelper import cross_validate, evaluate_preds
+from Modules.EvaluationHelper import cross_validate, evaluate_preds
 
 def create_column_transformer():
     # Define different features and transformer pipeline

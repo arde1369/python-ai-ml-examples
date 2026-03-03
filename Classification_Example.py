@@ -19,9 +19,6 @@ Create data dictionary:
   14. #58 (num)       (the predicted attribute)
 """
 
-import datetime
-import os
-
 import numpy as np
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
@@ -29,8 +26,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV
 from sklearn.metrics import confusion_matrix, classification_report 
-import pickle as pickle
-from Evaluation.EvaluationHelper import cross_validate 
+from Modules.EvaluationHelper import cross_validate
+from Modules.ModelExportHelper import export_model_to_file 
 
 # Create function to fit and score different models
 def fit_and_score(x_train, x_test, y_train, y_test):
@@ -86,17 +83,6 @@ def cv_tuner(tuning_method, x_train, y_train, param_distributions, cv=5, verbose
     print(f"Best parameter combination for {tuning_method} after {cv_method_name} tuning: {cv_method.best_params_}")
 
     return cv_method
-
-def export_model_to_file(model, filename):
-    saved_models_path="saved_models"
-    model_dir = os.path.join(saved_models_path, datetime.datetime.now().strftime("%Y%m%d-%H%M%S"))
-
-    model_path = model_dir + "-" + filename + ".pkl"
-
-    print(f"Saving model to: {model_path}...")
-
-    with open(model_path, 'wb') as file:
-        pickle.dump(model, file)
 
 def classification_example():
     df = pd.read_csv("heart-disease.csv")
