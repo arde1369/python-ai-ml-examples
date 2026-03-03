@@ -85,7 +85,7 @@ def cv_tuner(tuning_method, x_train, y_train, param_distributions, cv=5, verbose
     return cv_method
 
 def classification_example():
-    df = pd.read_csv("heart-disease.csv")
+    df = pd.read_csv("data\\heart-disease.csv")
 
     np.random.seed(42)
 

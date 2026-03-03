@@ -40,7 +40,7 @@ def regression_example():
     np.random.seed(42)
 
     # Import data and drop rows with missing labels
-    data = pd.read_csv("car-sales-extended-missing-data.csv")
+    data = pd.read_csv("data\\car-sales-extended-missing-data.csv")
     data.dropna(subset="Price", inplace=True)
 
     # Setup the preprocessing steps (Fill missing values and then convert to numbers)
