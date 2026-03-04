@@ -27,7 +27,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV
 from sklearn.metrics import confusion_matrix, classification_report 
 from Modules.EvaluationHelper import cross_validate
-from Modules.ModelExportHelper import export_model_to_file 
+from Modules.FileSysOps import export_model_to_file 
 
 # Create function to fit and score different models
 def fit_and_score(x_train, x_test, y_train, y_test):
